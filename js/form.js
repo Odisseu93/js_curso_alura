@@ -5,49 +5,57 @@ btnAdcionar.addEventListener('click', (e) => {
 
   var form = document.querySelector('#form-adiciona');
 
-  var nome = form.nome.value
-  var peso = form.peso.value
-  var altura = form.altura.value
-  var gordura = form.gordura.value
+  var paciente = infoPacienteForm(form);
 
-  // console.log(`Nome: ${nome}, Peso: ${peso}KG, Altura: ${altura}m, Gordura: ${gordura}BF`);
-
-  // criando os elementos
-  var pacienteTr = document.createElement('tr');
-  var nomeTd = document.createElement('td');
-  var pesoTd = document.createElement('td');
-  var alturaTd = document.createElement('td');
-  var gorduraTd = document.createElement('td');
-  var imcTd = document.createElement('td');
-
-
-  // setando os atributos dos elementos
-  pacienteTr.classList.add('paciente');
-  nomeTd.classList.add('info-nome');
-  pesoTd.classList.add('info-peso');
-  alturaTd.classList.add('info-altura');
-  gorduraTd.classList.add('info-gordura');
-  nomeTd.setAttribute("class", "valo")
-
-  // atribuindo valor ao elementos
-  nomeTd.textContent = nome;
-  pesoTd.textContent = peso;
-  alturaTd.textContent = altura;
-  gorduraTd.textContent = gordura;
-  imcTd.textContent = calculaImc(peso,altura);
-
-  console.log(calculaImc(peso,altura))
-
-  pacienteTr.appendChild(nomeTd);
-  pacienteTr.appendChild(pesoTd);
-  pacienteTr.appendChild(alturaTd);
-  pacienteTr.appendChild(gorduraTd);
-  pacienteTr.appendChild(imcTd);
-  
+  // adicionando paciente na tabela
+  var pacienteTr = novaLinhaPaciente(paciente);
 
   var tabela = document.querySelector('#tabela-pacientes');
 
+  // adiciona o novo paciente na tabela
   tabela.appendChild(pacienteTr);
 
+  // a função reset() limpa os campos de input
+  form.reset();
 
 });
+
+// resgata as informações inseridas nos inputs e salva no obj paciente
+function infoPacienteForm(form) {
+  var paciente = {
+    nome: form.nome.value,
+    peso: form.peso.value,
+    altura: form.altura.value,
+    gordura: form.gordura.value,
+    imc: calculaImc(form.peso.value, form.altura.value)
+  }
+
+  return paciente;
+}
+
+// cria uma nova tr
+function novaLinhaPaciente(paciente) {
+
+  var pacienteTr = document.createElement('tr');
+
+  pacienteTr.appendChild(novaCelula(paciente.nome, "info-nome"));
+  pacienteTr.appendChild(novaCelula(paciente.peso, "info-peso"));
+  pacienteTr.appendChild(novaCelula(paciente.altura, "info-altura"));
+  pacienteTr.appendChild(novaCelula(paciente.gordura, "info-gordura"));
+  pacienteTr.appendChild(novaCelula(paciente.imc, "info-imc"));
+
+
+
+  return pacienteTr;
+
+}
+
+function novaCelula(atributo, classe) {
+  var td = document.createElement('td');
+  // atribuindo valor 
+  td.textContent = atributo;
+  // adicinando uma classe ao elemento
+  td.classList.add(classe)
+
+  return td;
+}
