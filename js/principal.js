@@ -68,12 +68,12 @@ btnAdcionar.addEventListener('click', (e) => {
 
   
   // setando os atributos dos elementos
-  pacienteTr.setAttribute('class','paciente');
-  nomeTd.setAttribute('class','info-nome');
-  pesoTd.setAttribute('class','info-peso');
-  alturaTd.setAttribute('class','info-altura');
-  gorduraTd.setAttribute('class','info-gordura');
-  
+  pacienteTr.classList.add('paciente');
+  nomeTd.classList.add('info-nome');
+  pesoTd.classList.add('info-peso');
+  alturaTd.classList.add('info-altura');
+  gorduraTd.classList.add('info-gordura');
+  nomeTd.setAttribute("class","valo")
 
 // atribuindo valor ao elementos
   nomeTd.textContent = nome; 
