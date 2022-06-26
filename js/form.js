@@ -18,31 +18,36 @@ btnAdcionar.addEventListener('click', (e) => {
   var pesoTd = document.createElement('td');
   var alturaTd = document.createElement('td');
   var gorduraTd = document.createElement('td');
+  var imcTd = document.createElement('td');
 
-  
+
   // setando os atributos dos elementos
   pacienteTr.classList.add('paciente');
   nomeTd.classList.add('info-nome');
   pesoTd.classList.add('info-peso');
   alturaTd.classList.add('info-altura');
   gorduraTd.classList.add('info-gordura');
-  nomeTd.setAttribute("class","valo")
+  nomeTd.setAttribute("class", "valo")
 
-// atribuindo valor ao elementos
-  nomeTd.textContent = nome; 
-  pesoTd.textContent = peso; 
-  alturaTd.textContent = altura; 
-  gorduraTd.textContent = gordura; 
-  // imcTd.textContent = imc; 
+  // atribuindo valor ao elementos
+  nomeTd.textContent = nome;
+  pesoTd.textContent = peso;
+  alturaTd.textContent = altura;
+  gorduraTd.textContent = gordura;
+  imcTd.textContent = calculaImc(peso,altura);
+
+  console.log(calculaImc(peso,altura))
 
   pacienteTr.appendChild(nomeTd);
   pacienteTr.appendChild(pesoTd);
   pacienteTr.appendChild(alturaTd);
   pacienteTr.appendChild(gorduraTd);
+  pacienteTr.appendChild(imcTd);
+  
 
   var tabela = document.querySelector('#tabela-pacientes');
-  
+
   tabela.appendChild(pacienteTr);
 
-  
+
 });
