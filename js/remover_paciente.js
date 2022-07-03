@@ -1,4 +1,4 @@
-var tabela = document.querySelector("table");
+const tabela = document.querySelector("table");
 
 
 // event.target é aonde foi clicado, enquanto parentNode é o seu  pai

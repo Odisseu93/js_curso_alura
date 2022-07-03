@@ -3,14 +3,14 @@ const btnAdcionar = document.querySelector('#adicionar-paciente');
 btnAdcionar.addEventListener('click', (e) => {
   e.preventDefault();
 
-  var form = document.querySelector('#form-adiciona');
+  const form = document.querySelector('#form-adiciona');
 
-  var paciente = infoPacienteForm(form);
+  const paciente = infoPacienteForm(form);
 
   // adicionando paciente na tabela
 
 
-  var erros = validaPaciente(paciente);
+  const erros = validaPaciente(paciente);
 
   if (erros.length > 0) {
     exibeMensagemDeErro(erros);
@@ -20,23 +20,23 @@ btnAdcionar.addEventListener('click', (e) => {
   adicionaPacienteTb(paciente);
   // a função reset() limpa os campos de input
   form.reset();
-  var mensagensDeErro = document.querySelector('#mensagens-erro')
+  const mensagensDeErro = document.querySelector('#mensagens-erro')
   mensagensDeErro.innerHTML = "";
 });
 
 function adicionaPacienteTb(paciente) {
-  var pacienteTr = novaLinhaPaciente(paciente);
+  const pacienteTr = novaLinhaPaciente(paciente);
   pacienteTr.classList.add('paciente');
-  var tabela = document.querySelector('#tabela-pacientes');
+  const tabela = document.querySelector('#tabela-pacientes');
   tabela.appendChild(pacienteTr);
 
 }
 
 function exibeMensagemDeErro(erros) {
-  var ul = document.querySelector('#mensagens-erro');
+  const ul = document.querySelector('#mensagens-erro');
   ul.innerHTML = "";
   erros.forEach(erro => {
-    var li = document.createElement('li');
+    const li = document.createElement('li');
     li.textContent = erro;
     ul.appendChild(li);
   });
@@ -44,7 +44,7 @@ function exibeMensagemDeErro(erros) {
 
 // resgata as informações inseridas nos inputs e salva no obj paciente
 function infoPacienteForm(form) {
-  var paciente = {
+  const paciente = {
     nome: form.nome.value,
     peso: form.peso.value,
     altura: form.altura.value,
@@ -58,7 +58,7 @@ function infoPacienteForm(form) {
 // cria uma nova tr
 function novaLinhaPaciente(paciente) {
 
-  var pacienteTr = document.createElement('tr');
+  const pacienteTr = document.createElement('tr');
 
   pacienteTr.appendChild(novaCelula(paciente.nome, "info-nome"));
   pacienteTr.appendChild(novaCelula(paciente.peso, "info-peso"));
@@ -73,7 +73,7 @@ function novaLinhaPaciente(paciente) {
 }
 
 function novaCelula(atributo, classe) {
-  var td = document.createElement('td');
+  const td = document.createElement('td');
   // atribuindo valor 
   td.textContent = atributo;
   // adicinando uma classe ao elemento
@@ -84,7 +84,7 @@ function novaCelula(atributo, classe) {
 
 
 function validaPaciente(paciente) {
-  var erros = [];
+  const erros = [];
   if (!validaPeso(paciente.peso)) erros.push(" Peso inválido!");
 
   if (!validaAltura(paciente.altura)) erros.push("Altura inválida!");
