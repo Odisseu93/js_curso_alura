@@ -7,6 +7,7 @@
 body{
 	font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 	font-size: 14px;
+	background: linear-gradient(100deg,#FFD586 50%,#E0BBA9);
 }
 
 header{
@@ -34,6 +35,7 @@ header .container:before{
 	vertical-align:	middle;
 }
 
+
 .container{
 	width: 60%;
 	height: 100%;
@@ -43,6 +45,15 @@ header .container:before{
 section{
 	margin: 2em 0;
 	overflow: hidden;
+}
+
+input {
+	background: #D8F0F8;
+	font-size: 1.1em;
+}
+
+input::placeholder {
+	color: #333;
 }
 
 section h2{
@@ -69,7 +80,12 @@ td, th {
 
 th{
 	font-weight: bold;
-	background-color: #EEE;
+	background: linear-gradient(#1e130c,#9a8478);
+	color: white;
+}
+
+td {
+	background: #FFEAC4;
 }
 
 label{
