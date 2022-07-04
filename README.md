@@ -6,4 +6,4 @@ da Plataforma [Alura](https://www.alura.com.br/), O Objetivo é aprender alguns 
 - [Js eventos](https://www.w3schools.com/js/js_events.asp)
 - Utilizar e validar formulários
 - Boas práticas de organização de código Javascript
-- Buscar dados em outro servidor com AJAX
+- Buscar dados em outro servidor utilizando o Fetch
