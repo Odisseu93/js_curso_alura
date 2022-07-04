@@ -19,8 +19,8 @@ pacientes.forEach(paciente => {
 
   // Validação de dados
   const tdImc = paciente.querySelector(".info-imc");
-  const pesoEhValido = validaPeso(peso);
-  const alturaEhValida = validaAltura(altura);
+  let pesoEhValido = validaPeso(peso);
+  let alturaEhValida = validaAltura(altura);
 
   if (!pesoEhValido) {
     console.log("Peso inválido");
@@ -47,7 +47,7 @@ pacientes.forEach(paciente => {
 
 
 function validaPeso(peso) {
-  if (peso >=  0 && peso < 1000){
+  if (peso >= 0 && peso < 1000){
     return true;
   }else{
     return false;

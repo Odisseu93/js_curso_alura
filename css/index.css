@@ -152,7 +152,7 @@ button[disabled=disabled], button:disabled {
 }
 
 .paciente-invalido{
-	background-color: var(--falha-background-cor);
+	background: var(--falha-background-cor);
 	color: var(--falha-fonte-cor);
 }
 

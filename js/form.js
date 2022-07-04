@@ -29,7 +29,6 @@ function adicionaPacienteTb(paciente) {
   pacienteTr.classList.add('paciente');
   const tabela = document.querySelector('#tabela-pacientes');
   tabela.appendChild(pacienteTr);
-
 }
 
 function exibeMensagemDeErro(erros) {
