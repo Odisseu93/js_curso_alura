@@ -6,6 +6,17 @@ titulo.textContent = "Aparecida Nutricionista";
 
 const pacientes = document.querySelectorAll(".paciente");
 
+const regExp = /,/g;
+
+
+//substitui o separador decimal "," por "." (padrão americano)
+function vigulaParaPonto(valor) {
+  if (regExp.test(valor)) {
+    valor = valor.replace(regExp, '.');
+  }
+  return valor;
+}
+
 //forEach para inserir o dados de IMC de todos os pacientes
 pacientes.forEach(paciente => {
 
@@ -13,9 +24,9 @@ pacientes.forEach(paciente => {
   const tdAltura = paciente.querySelector(".info-altura");
 
   // conteúdo da tag td
-  const peso = tdPeso.textContent;
-  const altura = tdAltura.textContent;
-
+  const peso = vigulaParaPonto(tdPeso.textContent);
+  const altura = vigulaParaPonto(tdAltura.textContent);
+  // const altura = tdAltura.textContent;
 
   // Validação de dados
   const tdImc = paciente.querySelector(".info-imc");
@@ -47,6 +58,7 @@ pacientes.forEach(paciente => {
 
 
 function validaPeso(peso) {
+  peso = vigulaParaPonto(peso);
   if (peso >= 0 && peso < 1000){
     return true;
   }else{
@@ -55,6 +67,7 @@ function validaPeso(peso) {
 }
 
 function validaAltura(altura) {
+  altura = vigulaParaPonto(altura);
   if (altura >= 0 && altura <= 3.00){
     return true;
   }else{
@@ -65,6 +78,8 @@ function validaAltura(altura) {
 function calculaImc(peso, altura) {
   let imc = 0 ;
   imc = peso / (altura * altura);
-
-  return imc.toFixed(2)
+ 
+  return imc.toFixed(2);
 }
+
+
